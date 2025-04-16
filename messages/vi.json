@@ -1,0 +1,122 @@
+{
+  "common": {
+    "nav": {
+      "home": "Trang chủ",
+      "about": "Giới thiệu",
+      "projects": "Dự án",
+      "skills": "Kỹ năng",
+      "blog": "Blog",
+      "contact": "Liên hệ"
+    },
+    "cta": {
+      "viewProjects": "Xem dự án",
+      "contact": "Liên hệ",
+      "viewAll": "Xem tất cả",
+      "readMore": "Đọc thêm"
+    },
+    "language": {
+      "vi": "Tiếng Việt",
+      "en": "Tiếng Anh",
+      "ja": "Tiếng Nhật"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AI Application & Workflow Automation Specialist",
+      "tagline": "Với tư duy AI-First, tôi tin rằng gần như mọi thách thức đều có thể được tối ưu hóa hoặc giải quyết hiệu quả thông qua ứng dụng AI sáng tạo.",
+      "intro": "Chuyên về tự động hóa các quy trình phức tạp và tích hợp các giải pháp AI tiên tiến để nâng cao hiệu quả hoạt động."
+    },
+    "aiApproach": {
+      "title": "Tư duy AI-First",
+      "description": "Tôi tiếp cận mọi vấn đề với tư duy 'AI-First', tìm kiếm cách ứng dụng AI để tối ưu hóa quy trình và tạo ra giá trị."
+    },
+    "featuredProjects": {
+      "title": "Dự án nổi bật",
+      "viewAll": "Xem tất cả dự án"
+    },
+    "latestPosts": {
+      "title": "Bài viết mới nhất",
+      "viewAll": "Xem tất cả bài viết"
+    },
+    "skills": {
+      "title": "Kỹ năng chính",
+      "viewAll": "Xem chi tiết"
+    }
+  },
+  "about": {
+    "title": "Về tôi",
+    "description": "Chuyên gia về ứng dụng AI và tự động hóa quy trình",
+    "story": {
+      "title": "Câu chuyện của tôi",
+      "content": "Thành thạo xây dựng các quy trình tự động hóa end-to-end bằng n8n, bao gồm xử lý dữ liệu, tự động hóa DevOps và sản xuất/phân phối nội dung số."
+    },
+    "experience": {
+      "title": "Kinh nghiệm làm việc",
+      "description": "Các dự án và vị trí công việc đã đảm nhiệm"
+    },
+    "education": {
+      "title": "Học vấn",
+      "description": "Quá trình học tập và bằng cấp"
+    },
+    "awards": {
+      "title": "Giải thưởng",
+      "description": "Các thành tích và giải thưởng đạt được"
+    }
+  },
+  "projects": {
+    "title": "Dự án",
+    "description": "Các dự án tiêu biểu của tôi",
+    "categories": {
+      "all": "Tất cả",
+      "ai": "AI & Tự động hóa",
+      "mobile": "Ứng dụng di động",
+      "web": "Ứng dụng web"
+    }
+  },
+  "skills": {
+    "title": "Kỹ năng",
+    "description": "Các kỹ năng chuyên môn của tôi trong lĩnh vực AI, tự động hóa, phát triển ứng dụng di động và web",
+    "categories": {
+      "ai": "AI & Machine Learning",
+      "automation": "Tự động hóa",
+      "mobile": "Phát triển di động",
+      "web": "Phát triển web",
+      "devops": "DevOps",
+      "languages": "Ngôn ngữ"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Chia sẻ kiến thức và kinh nghiệm về AI, tự động hóa, phát triển ứng dụng di động và web",
+    "categories": {
+      "all": "Tất cả",
+      "ai": "AI & Machine Learning",
+      "automation": "Tự động hóa",
+      "mobile": "Phát triển di động",
+      "web": "Phát triển web",
+      "devops": "DevOps"
+    }
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "description": "Hãy liên hệ với tôi nếu bạn có bất kỳ câu hỏi hoặc dự án nào",
+    "form": {
+      "name": "Họ tên",
+      "email": "Email",
+      "subject": "Tiêu đề",
+      "message": "Nội dung",
+      "submit": "Gửi tin nhắn",
+      "sending": "Đang gửi...",
+      "success": "Tin nhắn đã được gửi thành công!",
+      "error": "Có lỗi xảy ra khi gửi tin nhắn"
+    },
+    "info": {
+      "title": "Thông tin liên hệ",
+      "description": "Bạn có thể liên hệ với tôi qua các kênh sau",
+      "email": "Email",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ",
+      "social": "Mạng xã hội"
+    }
+  }
+}

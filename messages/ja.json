@@ -1,0 +1,122 @@
+{
+  "common": {
+    "nav": {
+      "home": "ホーム",
+      "about": "紹介",
+      "projects": "プロジェクト",
+      "skills": "スキル",
+      "blog": "ブログ",
+      "contact": "お問い合わせ"
+    },
+    "cta": {
+      "viewProjects": "プロジェクトを見る",
+      "contact": "お問い合わせ",
+      "viewAll": "すべて見る",
+      "readMore": "続きを読む"
+    },
+    "language": {
+      "vi": "ベトナム語",
+      "en": "英語",
+      "ja": "日本語"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AIアプリケーション＆ワークフロー自動化スペシャリスト",
+      "tagline": "AI-Firstの考え方で、ほぼすべての課題は創造的なAIアプリケーションによって最適化または効果的に解決できると信じています。",
+      "intro": "複雑なプロセスの自動化と先進的なAIソリューションの統合に特化し、運用効率を向上させます。"
+    },
+    "aiApproach": {
+      "title": "AI-Firstアプローチ",
+      "description": "私はすべての問題に「AI-First」の考え方でアプローチし、プロセスを最適化し価値を創造するためにAIを適用する方法を模索しています。"
+    },
+    "featuredProjects": {
+      "title": "注目のプロジェクト",
+      "viewAll": "すべてのプロジェクトを見る"
+    },
+    "latestPosts": {
+      "title": "最新の投稿",
+      "viewAll": "すべての投稿を見る"
+    },
+    "skills": {
+      "title": "主要スキル",
+      "viewAll": "詳細を見る"
+    }
+  },
+  "about": {
+    "title": "私について",
+    "description": "AIアプリケーション＆ワークフロー自動化スペシャリスト",
+    "story": {
+      "title": "私のストーリー",
+      "content": "n8nを使用したエンドツーエンドの自動化ワークフローの構築に習熟しており、データ処理、DevOps自動化、デジタルコンテンツの制作/配信などが含まれます。"
+    },
+    "experience": {
+      "title": "職務経歴",
+      "description": "私のプロジェクトと役割の概要"
+    },
+    "education": {
+      "title": "学歴",
+      "description": "私の学歴と資格"
+    },
+    "awards": {
+      "title": "受賞歴",
+      "description": "成果と表彰"
+    }
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "description": "私の注目プロジェクト",
+    "categories": {
+      "all": "すべて",
+      "ai": "AI & 自動化",
+      "mobile": "モバイルアプリ",
+      "web": "Webアプリ"
+    }
+  },
+  "skills": {
+    "title": "スキル",
+    "description": "AI、自動化、モバイルおよびWeb開発における私の専門知識",
+    "categories": {
+      "ai": "AI & 機械学習",
+      "automation": "自動化",
+      "mobile": "モバイル開発",
+      "web": "Web開発",
+      "devops": "DevOps",
+      "languages": "言語"
+    }
+  },
+  "blog": {
+    "title": "ブログ",
+    "description": "AI、自動化、モバイルおよびWeb開発に関する知見と経験の共有",
+    "categories": {
+      "all": "すべて",
+      "ai": "AI & 機械学習",
+      "automation": "自動化",
+      "mobile": "モバイル開発",
+      "web": "Web開発",
+      "devops": "DevOps"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご質問やプロジェクトがございましたら、お気軽にお問い合わせください",
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "subject": "件名",
+      "message": "メッセージ",
+      "submit": "メッセージを送信",
+      "sending": "送信中...",
+      "success": "メッセージが正常に送信されました！",
+      "error": "メッセージの送信中にエラーが発生しました"
+    },
+    "info": {
+      "title": "連絡先情報",
+      "description": "以下のチャネルを通じて私に連絡できます",
+      "email": "メール",
+      "phone": "電話",
+      "address": "住所",
+      "social": "ソーシャルメディア"
+    }
+  }
+}

@@ -5,11 +5,15 @@ export const locales = ["vi", "en", "ja"]
 export const defaultLocale = "vi"
 
 export default getRequestConfig(async ({ locale }) => {
-  // If the locale is not supported, use the default locale
-  const resolvedLocale = locales.includes(locale as string) ? locale : defaultLocale
+  // Validate the incoming locale against the supported locales.
+  // If it's not valid (or undefined), fall back to the default locale.
+  let resolvedLocale = defaultLocale // Start with default
+  if (locale && locales.includes(locale)) {
+    resolvedLocale = locale
+  }
 
   return {
-    locale: resolvedLocale as string,
+    locale: resolvedLocale, // Now guaranteed to be a string
     messages: (await import(`../messages/${resolvedLocale}.json`)).default,
   }
 })

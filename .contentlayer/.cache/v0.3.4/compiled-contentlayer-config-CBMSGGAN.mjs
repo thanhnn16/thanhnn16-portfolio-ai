@@ -86,7 +86,7 @@ var BlogPost = defineDocumentType(() => ({
     author: {
       type: "string",
       required: true,
-      default: "N\xF4ng Nguy\u1EC5n Thanh"
+      default: "N\xF4ng Nguy\u1EC5n Th\xE0nh"
     },
     tags: {
       type: "list",
@@ -152,4 +152,4 @@ export {
   Project,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-JVQDHVBO.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-CBMSGGAN.mjs.map

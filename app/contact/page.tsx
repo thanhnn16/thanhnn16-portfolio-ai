@@ -5,11 +5,11 @@ import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
 
 export const metadata: Metadata = {
-  title: "Contact | Nông Nguyễn Thanh",
-  description: "Get in touch with Nông Nguyễn Thanh. Contact me for collaboration, questions, or project inquiries.",
+  title: "Contact | Nông Nguyễn Thành",
+  description: "Get in touch with Nông Nguyễn Thành. Contact me for collaboration, questions, or project inquiries.",
   openGraph: {
-    title: "Contact | Nông Nguyễn Thanh",
-    description: "Get in touch with Nông Nguyễn Thanh. Contact me for collaboration, questions, or project inquiries.",
+    title: "Contact | Nông Nguyễn Thành",
+    description: "Get in touch with Nông Nguyễn Thành. Contact me for collaboration, questions, or project inquiries.",
     url: "https://thanhnn16.vercel.app/contact",
     type: "website",
   },

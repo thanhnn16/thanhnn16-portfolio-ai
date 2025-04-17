@@ -6,13 +6,13 @@ import { AboutEducation } from "@/components/about/about-education"
 import { AboutAwards } from "@/components/about/about-awards"
 
 export const metadata: Metadata = {
-  title: "About Me | Nông Nguyễn Thanh",
+  title: "About Me | Nông Nguyễn Thành",
   description:
-    "Learn more about Nông Nguyễn Thanh, an AI Application & Workflow Automation Specialist with expertise in AI integration, automation, and software development.",
+    "Learn more about Nông Nguyễn Thành, an AI Application & Workflow Automation Specialist with expertise in AI integration, automation, and software development.",
   openGraph: {
-    title: "About Me | Nông Nguyễn Thanh",
+    title: "About Me | Nông Nguyễn Thành",
     description:
-      "Learn more about Nông Nguyễn Thanh, an AI Application & Workflow Automation Specialist with expertise in AI integration, automation, and software development.",
+      "Learn more about Nông Nguyễn Thành, an AI Application & Workflow Automation Specialist with expertise in AI integration, automation, and software development.",
     url: "https://thanhnn16.vercel.app/about",
     type: "website",
   },

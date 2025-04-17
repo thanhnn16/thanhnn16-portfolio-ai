@@ -87,7 +87,7 @@ export const BlogPost = defineDocumentType(() => ({
     author: {
       type: "string",
       required: true,
-      default: "Nông Nguyễn Thanh",
+      default: "Nông Nguyễn Thành",
     },
     tags: {
       type: "list",

@@ -15,7 +15,7 @@ export function AboutHero() {
             <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-xl">
               <Image
                 src="/placeholder.svg?height=600&width=600"
-                alt="Nông Nguyễn Thanh portrait"
+                alt="Nông Nguyễn Thành portrait"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -30,7 +30,7 @@ export function AboutHero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h1 id="about-heading" className="text-4xl font-bold tracking-tight text-orange-500 md:text-5xl">
-              Nông Nguyễn Thanh
+              Nông Nguyễn Thành
             </h1>
             <p className="mt-4 text-xl font-medium text-zinc-200">AI Application & Workflow Automation Specialist</p>
             <div className="mt-6 space-y-4 text-zinc-300">

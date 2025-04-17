@@ -113,7 +113,7 @@ export function Footer() {
       </div>
 
       <div className="container mt-8 border-t border-zinc-800 pt-6">
-        <p className="text-center text-sm text-zinc-400">© {currentYear} Nông Nguyễn Thanh. All rights reserved.</p>
+        <p className="text-center text-sm text-zinc-400">© {currentYear} Nông Nguyễn Thành. All rights reserved.</p>
       </div>
     </footer>
   )

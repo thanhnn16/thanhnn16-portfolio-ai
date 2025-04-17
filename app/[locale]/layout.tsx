@@ -1,7 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Lexend } from "next/font/google"
-import "@/app/globals.css"
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "@/lib/get-messages"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
+import { cn } from "@/lib/utils"
+import "../globals.css"
+import { locales } from "@/lib/i18n"
+import { notFound } from "next/navigation"
+import { MainLayout } from "@/components/layout/main-layout"
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -53,12 +61,36 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://thanhnn16.vercel.app"),
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  const locale = (await params).locale
+  const messages = await getMessages(locale)
+
+  if (!locales.includes(locale as any)) notFound()
+
   return (
-    <html lang="vi" suppressHydrationWarning className="dark">
-      <body>
-        {children}
-      </body>
-    </html>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+      >
+        <MainLayout>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-zinc-800 focus:text-orange-500"
+          >
+            Skip to content
+          </a>
+          {children}
+        </MainLayout>
+        <Toaster />
+      </ThemeProvider>
+    </NextIntlClientProvider>
   )
-}
+} 

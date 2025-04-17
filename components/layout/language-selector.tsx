@@ -25,8 +25,18 @@ export function LanguageSelector() {
       pathWithoutLocale = segments.slice(1).join("/")
     }
 
-    // Create the new path with the new locale
-    const newPath = newLocale === "vi" ? `/${pathWithoutLocale}` : `/${newLocale}/${pathWithoutLocale}`
+    // Ensure pathWithoutLocale doesn't start with a slash if it's not empty
+    if (pathWithoutLocale.startsWith('/')) {
+        pathWithoutLocale = pathWithoutLocale.substring(1);
+    }
+
+    // Construct the new path carefully
+    let newPath;
+    if (newLocale === "vi") { // Assuming 'vi' is defaultLocale
+      newPath = pathWithoutLocale ? `/${pathWithoutLocale}` : "/"; // Go to root if path is empty
+    } else {
+      newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`; // Add segment only if not empty
+    }
 
     router.push(newPath)
   }

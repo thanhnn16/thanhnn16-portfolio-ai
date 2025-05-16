@@ -7,9 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
 import "../globals.css"
-import { locales } from "@/lib/i18n"
+import { locales } from "@/i18n/routing"
 import { notFound } from "next/navigation"
-import { MainLayout } from "@/components/layout/main-layout"
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://thanhnn16.vercel.app",
+    url: "https://thanhnn16.io.vn",
     title:
       "Nông Nguyễn Thành - AI Application & Workflow Automation Specialist",
     description:
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
       "Portfolio của Nông Nguyễn Thành - Chuyên gia Ứng dụng AI & Tự động hóa Quy trình với tư duy AI-First",
     creator: "@thanhnn16",
   },
-  metadataBase: new URL("https://thanhnn16.vercel.app"),
+  metadataBase: new URL("https://thanhnn16.io.vn"),
 }
 
 export default async function LocaleLayout({
@@ -74,23 +75,27 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) notFound()
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem={false}
-      >
-        <MainLayout>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-zinc-800 focus:text-orange-500"
+    <html lang={locale} className={cn(inter.variable, lexend.variable)}>
+      <body className="min-h-screen bg-zinc-950 antialiased">
+        <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Ho_Chi_Minh">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
           >
-            Skip to content
-          </a>
-          {children}
-        </MainLayout>
-        <Toaster />
-      </ThemeProvider>
-    </NextIntlClientProvider>
+            <Header />
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-zinc-800 focus:text-orange-500"
+              >
+                Skip to content
+              </a>
+              {children}
+            <Toaster />
+            <Footer />
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   )
 } 

@@ -7,6 +7,40 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { ProjectCard } from "@/components/projects/project-card"
 
+// Define the project interface
+interface Project {
+  id: string
+  title: string
+  description: string
+  image: string
+  slug: string
+  techStack: string[]
+}
+
+// Define the mock project interface
+interface MockProject {
+  title: string
+  description: string
+  role: string
+  technologies: string[]
+  category: string
+  featured: boolean
+  mainImage: string
+  slug: string
+  url: string
+}
+
+type ProjectType = Project | MockProject
+
+// Type guard to check if a project is from API or mock data
+function isApiProject(project: ProjectType): project is Project {
+  return (project as Project).image !== undefined && (project as Project).techStack !== undefined;
+}
+
+interface FeaturedProjectsSectionProps {
+  projects: Project[]
+}
+
 // This would normally come from Contentlayer, but for now we'll use mock data
 const mockFeaturedProjects = [
   {
@@ -46,8 +80,11 @@ const mockFeaturedProjects = [
   },
 ]
 
-export function FeaturedProjectsSection() {
+export function FeaturedProjectsSection({ projects = [] }: FeaturedProjectsSectionProps) {
   const t = useTranslations("home.featuredProjects")
+  
+  // Use provided projects or fallback to mock data if no projects provided
+  const projectsToShow = projects.length > 0 ? projects : mockFeaturedProjects
 
   return (
     <section className="py-16">
@@ -78,7 +115,7 @@ export function FeaturedProjectsSection() {
         </div>
 
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {mockFeaturedProjects.map((project, index) => (
+          {projectsToShow.map((project, index) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -86,7 +123,18 @@ export function FeaturedProjectsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard 
+                project={{
+                  title: project.title,
+                  description: project.description,
+                  role: isApiProject(project) ? "" : project.role,
+                  technologies: isApiProject(project) ? project.techStack : project.technologies,
+                  category: isApiProject(project) ? "" : project.category,
+                  mainImage: isApiProject(project) ? project.image : project.mainImage,
+                  slug: project.slug,
+                  url: `/projects/${project.slug}`
+                }} 
+              />
             </motion.div>
           ))}
         </div>

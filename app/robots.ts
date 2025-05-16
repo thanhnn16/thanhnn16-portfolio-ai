@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/"],
     },
-    sitemap: "https://thanhnn16.vercel.app/sitemap.xml",
+    sitemap: "https://thanhnn16.io.vn/sitemap.xml",
   }
 }

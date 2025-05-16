@@ -1,44 +1,26 @@
 "use client"
 
-import { usePathname, useRouter } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
-import { locales } from "@/lib/i18n"
+import { usePathname, useRouter } from "@/i18n/navigation"
 
 export function LanguageSelector() {
   const t = useTranslations("common.language")
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-
   const switchLocale = (newLocale: string) => {
-    // Get the path without the locale prefix
-    const segments = pathname.split("/")
-    const isLocalePath = locales.includes(segments[1])
-
-    let pathWithoutLocale
-    if (isLocalePath) {
-      pathWithoutLocale = segments.slice(2).join("/")
-    } else {
-      pathWithoutLocale = segments.slice(1).join("/")
+    let targetPath = pathname;
+    
+    if (pathname.includes("/blog/") && pathname !== "/blog") {
+      targetPath = "/blog";
+    } else if (pathname.includes("/projects/") && pathname !== "/projects") {
+      targetPath = "/projects";
     }
-
-    // Ensure pathWithoutLocale doesn't start with a slash if it's not empty
-    if (pathWithoutLocale.startsWith('/')) {
-        pathWithoutLocale = pathWithoutLocale.substring(1);
-    }
-
-    // Construct the new path carefully
-    let newPath;
-    if (newLocale === "vi") { // Assuming 'vi' is defaultLocale
-      newPath = pathWithoutLocale ? `/${pathWithoutLocale}` : "/"; // Go to root if path is empty
-    } else {
-      newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`; // Add segment only if not empty
-    }
-
-    router.push(newPath)
+    
+    router.replace(targetPath, { locale: newLocale })
   }
 
   return (

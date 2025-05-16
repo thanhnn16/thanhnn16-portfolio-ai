@@ -7,6 +7,40 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { PostCard } from "@/components/blog/post-card"
 
+// Define the post interface
+interface Post {
+  id: string
+  title: string
+  excerpt: string
+  date: string
+  slug: string
+  image: string
+}
+
+// Define the mock post interface
+interface MockPost {
+  title: string
+  description: string
+  date: string
+  author: string
+  tags: string[]
+  categories: string[]
+  coverImage: string
+  slug: string
+  url: string
+}
+
+type PostType = Post | MockPost
+
+// Type guard to check if a post is from API or mock data
+function isApiPost(post: PostType): post is Post {
+  return (post as Post).image !== undefined && (post as Post).excerpt !== undefined;
+}
+
+interface LatestPostsSectionProps {
+  posts: Post[]
+}
+
 // This would normally come from Contentlayer, but for now we'll use mock data
 const mockLatestPosts = [
   {
@@ -44,8 +78,11 @@ const mockLatestPosts = [
   },
 ]
 
-export function LatestPostsSection() {
+export function LatestPostsSection({ posts = [] }: LatestPostsSectionProps) {
   const t = useTranslations("home.latestPosts")
+  
+  // Use provided posts or fallback to mock data if no posts provided
+  const postsToShow = posts.length > 0 ? posts : mockLatestPosts
 
   return (
     <section className="py-16 bg-zinc-950">
@@ -76,7 +113,7 @@ export function LatestPostsSection() {
         </div>
 
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {mockLatestPosts.map((post, index) => (
+          {postsToShow.map((post, index) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -84,7 +121,19 @@ export function LatestPostsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <PostCard post={post} />
+              <PostCard 
+                post={{
+                  title: post.title,
+                  description: isApiPost(post) ? post.excerpt : post.description,
+                  date: post.date,
+                  author: isApiPost(post) ? "" : post.author,
+                  tags: isApiPost(post) ? [] : post.tags,
+                  categories: isApiPost(post) ? [] : post.categories,
+                  coverImage: isApiPost(post) ? post.image : post.coverImage,
+                  slug: post.slug,
+                  url: `/blog/${post.slug}`
+                }}
+              />
             </motion.div>
           ))}
         </div>

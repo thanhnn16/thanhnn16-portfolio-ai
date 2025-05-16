@@ -1,18 +1,11 @@
-import createMiddleware from "next-intl/middleware"
-import { locales, defaultLocale } from "./lib/i18n"
-
-export default createMiddleware({
-  locales,
-  defaultLocale,
-  localePrefix: "as-needed", // Or 'always' or 'never'
-})
-
+import createMiddleware from 'next-intl/middleware';
+import {routing} from './i18n/routing';
+ 
+export default createMiddleware(routing);
+ 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: [
-    "/", // Match root
-    "/(vi|en|ja)/:path*", // Match all routes starting with /vi, /en, or /ja
-    // Enable optional default locale prefix
-    // '/((?!_next|.*\\..*).*)'
-  ],
-}
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+};

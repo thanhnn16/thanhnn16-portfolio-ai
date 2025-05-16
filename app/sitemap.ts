@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next"
-import { locales } from "@/lib/i18n"
+import { locales } from "@/i18n/i18n"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Base URL for the site
-  const baseUrl = "https://thanhnn16.vercel.app"
+  const baseUrl = "https://thanhnn16.io.vn"
 
   // Current date for lastModified
   const currentDate = new Date()

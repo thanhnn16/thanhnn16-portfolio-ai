@@ -1,24 +1,46 @@
-import type { Metadata } from "next"
-import { MainLayout } from "@/components/layout/main-layout"
+import { Metadata } from "next"
+import { useTranslations } from "next-intl"
+import { getBlogPosts } from "@/lib/directus"
 import { BlogHeader } from "@/components/blog/blog-header"
 import { BlogGrid } from "@/components/blog/blog-grid"
+import { PostCard } from "@/components/blog/post-card"
 
 export const metadata: Metadata = {
-  title: "Blog | Nông Nguyễn Thành",
-  description: "Read my latest articles about AI, automation, mobile and web development, and more.",
-  openGraph: {
-    title: "Blog | Nông Nguyễn Thành",
-    description: "Read my latest articles about AI, automation, mobile and web development, and more.",
-    url: "https://thanhnn16.vercel.app/blog",
-    type: "website",
-  },
+  title: "Blog - Nông Nguyễn Thành",
+  description: "Read tech articles and insights about AI, automation, and development.",
 }
 
-export default function BlogPage() {
+export default async function BlogPage({ params }: { params: { locale: string } }) {
+  const t = useTranslations("blog")
+  const locale = params.locale
+  const posts = await getBlogPosts(locale)
+
   return (
-    <MainLayout>
-      <BlogHeader />
-      <BlogGrid />
-    </MainLayout>
+    <div className="container py-10">
+      <BlogHeader 
+        title={t("title")}
+        description={t("description")}
+      />
+      
+      <BlogGrid>
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <PostCard
+              key={post.id}
+              title={post.title}
+              excerpt={post.content.substring(0, 150) + "..."}
+              slug={post.slug}
+              date={post.publish_date}
+              imageSrc={post.cover_image 
+                ? `${process.env.DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}` 
+                : "/placeholder.jpg"
+              }
+            />
+          ))
+        ) : (
+          <p className="text-center col-span-full text-zinc-400">{t("no_posts")}</p>
+        )}
+      </BlogGrid>
+    </div>
   )
 }

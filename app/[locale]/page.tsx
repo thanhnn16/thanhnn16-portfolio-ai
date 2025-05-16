@@ -17,7 +17,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
   const latestPosts = allPosts.slice(0, 3)
 
   return (
-    <div className="space-y-20 md:space-y-32 py-10">
+    <div className="space-y-20 md:space-y-32 pb-10">
       <HeroSection />
       <KeySkillsSection />
       <AiApproachSection />

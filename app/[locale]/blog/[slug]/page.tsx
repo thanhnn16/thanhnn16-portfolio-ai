@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: {
       type: "article",
       url: `https://thanhnn16.io.vn/blog/${post.slug}`,
       images: post.cover_image 
-        ? [{ url: `${process.env.DIRECTUS_URL}/assets/${post.cover_image}` }] 
+        ? [{ url: `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${post.cover_image}` }] 
         : [],
     },
   }
@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: {
         {post.cover_image && (
           <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden">
             <Image
-              src={`${process.env.DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}`}
+              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}`}
               alt={post.title}
               fill
               className="object-cover"

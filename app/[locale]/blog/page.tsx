@@ -32,7 +32,7 @@ export default async function BlogPage({ params }: { params: { locale: string } 
               slug={post.slug}
               date={post.publish_date}
               imageSrc={post.cover_image 
-                ? `${process.env.DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}` 
+                ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}` 
                 : "/placeholder.jpg"
               }
             />

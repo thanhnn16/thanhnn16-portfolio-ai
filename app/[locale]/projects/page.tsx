@@ -31,7 +31,7 @@ export default async function ProjectsPage({ params }: { params: { locale: strin
               description={project.description}
               slug={project.slug}
               imageSrc={project.cover_image 
-                ? `${process.env.DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}` 
+                ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}` 
                 : "/placeholder.jpg"
               }
               techStack={project.tech_stack}

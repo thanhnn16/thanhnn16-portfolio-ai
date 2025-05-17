@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: {
       type: "article",
       url: `https://thanhnn16.io.vn/projects/${project.slug}`,
       images: project.cover_image 
-        ? [{ url: `${process.env.DIRECTUS_URL}/assets/${project.cover_image}` }] 
+        ? [{ url: `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${project.cover_image}` }] 
         : [],
     },
   }
@@ -51,7 +51,7 @@ export default async function ProjectPage({ params }: {
         {project.cover_image && (
           <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden">
             <Image
-              src={`${process.env.DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}`}
+              src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}`}
               alt={project.title}
               fill
               className="object-cover"

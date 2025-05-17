@@ -4,6 +4,7 @@
     "allowJs": true,
     "target": "ES6",
     "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,

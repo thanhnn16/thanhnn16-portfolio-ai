@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getBlogPost } from "@/lib/directus"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 
 export async function generateMetadata({ params }: {
@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: {
   params: { slug: string, locale: string } 
 }) {
   const post = await getBlogPost(params.slug, params.locale)
-  const t = useTranslations("blog")
+  const t = await getTranslations({ locale: params.locale, namespace: "blog" })
   
   if (!post) {
     notFound()

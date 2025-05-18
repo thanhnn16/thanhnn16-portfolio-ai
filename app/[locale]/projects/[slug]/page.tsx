@@ -1,11 +1,11 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getProject } from "@/lib/directus"
-import { useTranslations } from "next-intl"
-import { Link } from "@/lib/i18n/navigation"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { GithubIcon, ExternalLink } from "lucide-react"
+import { Link } from "@/i18n/navigation"
 
 export async function generateMetadata({ params }: {
   params: { slug: string, locale: string }
@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: {
   params: { slug: string, locale: string } 
 }) {
   const project = await getProject(params.slug, params.locale)
-  const t = useTranslations("projects")
+  const t = await getTranslations({ locale: params.locale, namespace: "projects" })
   
   if (!project) {
     notFound()

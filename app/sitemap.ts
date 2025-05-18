@@ -1,5 +1,5 @@
+import { locales } from "@/i18n/routing"
 import type { MetadataRoute } from "next"
-import { locales } from "@/i18n/i18n"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Base URL for the site

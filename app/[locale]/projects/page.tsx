@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { getProjects } from "@/lib/directus"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import { ProjectsHeader } from "@/components/projects/projects-header"
 import { ProjectsGrid } from "@/components/projects/projects-grid"
 import { ProjectCard } from "@/components/projects/project-card"
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ProjectsPage({ params }: { params: { locale: string } }) {
-  const t = useTranslations("projects")
+  const t = await getTranslations({ locale: params.locale, namespace: "projects" })
   const locale = params.locale
   const projects = await getProjects(locale)
 
@@ -27,16 +27,20 @@ export default async function ProjectsPage({ params }: { params: { locale: strin
           projects.map((project) => (
             <ProjectCard
               key={project.id}
-              title={project.title}
-              description={project.description}
-              slug={project.slug}
-              imageSrc={project.cover_image 
-                ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}` 
-                : "/placeholder.jpg"
-              }
-              techStack={project.tech_stack}
-              githubLink={project.github_link}
-              demoLink={project.demo_link}
+              project={{
+                title: project.title,
+                description: project.description,
+                role: project.role || t("default_role"),
+                technologies: project.tech_stack || [],
+                category: project.category || "Other",
+                mainImage: project.cover_image 
+                  ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${project.cover_image}` 
+                  : "/placeholder.jpg",
+                slug: project.slug,
+                url: `/${locale}/projects/${project.slug}`,
+                githubLink: project.github_link,
+                demoLink: project.demo_link
+              }}
             />
           ))
         ) : (

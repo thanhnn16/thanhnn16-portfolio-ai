@@ -9,8 +9,7 @@ interface Post {
   description: string
   date: string
   author: string
-  tags: string[]
-  categories: string[]
+  tags?: string[]
   coverImage: string
   slug: string
   url: string
@@ -36,8 +35,12 @@ export function PostCard({ post }: PostCardProps) {
       <CardContent className="p-6">
         <div className="mb-2 flex items-center gap-2 text-sm text-zinc-400">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span aria-hidden="true">•</span>
-          <span>{post.author}</span>
+          {post.author && (
+            <>
+              <span aria-hidden="true">•</span>
+              <span>{post.author}</span>
+            </>
+          )}
         </div>
         <h3 className="mb-2 text-xl font-bold text-zinc-100">
           <Link href={post.url} className="hover:text-orange-500 focus:outline-none focus:underline">
@@ -46,13 +49,15 @@ export function PostCard({ post }: PostCardProps) {
         </h3>
         <p className="text-zinc-400">{post.description}</p>
       </CardContent>
-      <CardFooter className="flex flex-wrap gap-2 border-t border-zinc-700 bg-zinc-800/50 px-6 py-4">
-        {post.categories.map((category, index) => (
-          <Badge key={index} variant="secondary" className="bg-zinc-700 hover:bg-zinc-600">
-            {category}
-          </Badge>
-        ))}
-      </CardFooter>
+      {post.tags && post.tags.length > 0 && (
+        <CardFooter className="flex flex-wrap gap-2 border-t border-zinc-700 bg-zinc-800/50 px-6 py-4">
+          {post.tags.map((tag, index) => (
+            <Badge key={index} variant="secondary" className="bg-zinc-700 hover:bg-zinc-600">
+              {tag}
+            </Badge>
+          ))}
+        </CardFooter>
+      )}
     </Card>
   )
 }

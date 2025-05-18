@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 
-export function ProjectsHeader() {
+export function ProjectsHeader({ title, description }: { title: string; description: string }) {
   const t = useTranslations("projects")
 
   return (
@@ -16,10 +16,10 @@ export function ProjectsHeader() {
           transition={{ duration: 0.5 }}
         >
           <h1 id="projects-heading" className="text-4xl font-bold tracking-tight text-orange-500 sm:text-5xl">
-            Dự án
+            {title}
           </h1>
           <p className="mt-4 text-lg text-zinc-300">
-            Khám phá các dự án AI, tự động hóa, phát triển ứng dụng di động và web của tôi.
+            {description}
           </p>
         </motion.div>
       </div>

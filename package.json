@@ -1,12 +1,13 @@
 {
-  "name": "my-v0-project",
+  "name": "thanhnn16-porfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "init:schema": "bun run lib/directus/schema-manager.ts"
   },
   "dependencies": {
     "@directus/sdk": "latest",

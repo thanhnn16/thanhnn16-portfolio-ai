@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import { getBlogPosts } from "@/lib/directus"
 import { BlogHeader } from "@/components/blog/blog-header"
 import { BlogGrid } from "@/components/blog/blog-grid"
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage({ params }: { params: { locale: string } }) {
-  const t = useTranslations("blog")
+  const t = await getTranslations({ locale: params.locale, namespace: "blog" })
   const locale = params.locale
   const posts = await getBlogPosts(locale)
 
@@ -27,14 +27,18 @@ export default async function BlogPage({ params }: { params: { locale: string } 
           posts.map((post) => (
             <PostCard
               key={post.id}
-              title={post.title}
-              excerpt={post.content.substring(0, 150) + "..."}
-              slug={post.slug}
-              date={post.publish_date}
-              imageSrc={post.cover_image 
-                ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}` 
-                : "/placeholder.jpg"
-              }
+              post={{
+                title: post.title,
+                description: post.content.substring(0, 150) + "...",
+                date: post.publish_date,
+                author: post.author || "Admin",
+                tags: post.tags?.map(tag => typeof tag === 'string' ? tag : (tag as any).name || ""),
+                coverImage: post.cover_image 
+                  ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055'}/assets/${post.cover_image}` 
+                  : "/placeholder.jpg",
+                slug: post.slug,
+                url: `/${locale}/blog/${post.slug}`
+              }}
             />
           ))
         ) : (

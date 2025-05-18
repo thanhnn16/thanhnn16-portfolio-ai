@@ -81,7 +81,7 @@ const mockProjects = [
   },
 ]
 
-export function ProjectsGrid() {
+export function ProjectsGrid({ children }: { children: React.ReactNode }) {
   const t = useTranslations("projects")
   const [activeCategory, setActiveCategory] = useState("AI & Automation")
 

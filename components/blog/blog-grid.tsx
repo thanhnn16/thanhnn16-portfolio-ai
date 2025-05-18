@@ -79,7 +79,7 @@ const mockPosts = [
 // Extract all unique categories
 const allCategories = Array.from(new Set(mockPosts.flatMap((post) => post.categories)))
 
-export function BlogGrid() {
+export function BlogGrid({ children }: { children: React.ReactNode }) {
   const t = useTranslations("blog")
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 

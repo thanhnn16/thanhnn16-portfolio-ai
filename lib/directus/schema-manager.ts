@@ -1,8 +1,8 @@
 // Schema management utilities for Directus
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { schemaApply, schemaSnapshot, schemaDiff } from '@directus/sdk';
-import directus from './index';
+import { readFileSync } from "fs";
+import { resolve } from "path";
+import { schemaApply, schemaSnapshot, schemaDiff } from "@directus/sdk";
+import directus from "./index";
 
 /**
  * Get the current schema snapshot from the Directus instance
@@ -11,7 +11,7 @@ export async function getSchemaSnapshot() {
   try {
     return await directus.request(schemaSnapshot());
   } catch (error) {
-    console.error('Error fetching schema snapshot:', error);
+    console.error("Error fetching schema snapshot:", error);
     throw error;
   }
 }
@@ -24,7 +24,7 @@ export async function getSchemaChanges(schema: any) {
   try {
     return await directus.request(schemaDiff(schema));
   } catch (error) {
-    console.error('Error getting schema diff:', error);
+    console.error("Error getting schema diff:", error);
     throw error;
   }
 }
@@ -37,7 +37,7 @@ export async function applySchemaChanges(changes: any) {
   try {
     return await directus.request(schemaApply(changes));
   } catch (error) {
-    console.error('Error applying schema changes:', error);
+    console.error("Error applying schema changes:", error);
     throw error;
   }
 }
@@ -47,9 +47,9 @@ export async function applySchemaChanges(changes: any) {
  */
 export function loadSchemaFromFile() {
   try {
-    return readFileSync(resolve(__dirname, 'schema.yml'), 'utf8');
+    return readFileSync(resolve(__dirname, "schema.yml"), "utf8");
   } catch (error) {
-    console.error('Error loading schema file:', error);
+    console.error("Error loading schema file:", error);
     throw error;
   }
 }
@@ -62,18 +62,18 @@ export async function initializeSchema() {
     const schemaContent = loadSchemaFromFile();
     const currentSchema = await getSchemaSnapshot();
     const changes = await getSchemaChanges(schemaContent);
-    
+
     if (changes && Object.keys(changes).length > 0) {
-      console.log('Schema changes detected, applying...');
+      console.log("Schema changes detected, applying...");
       await applySchemaChanges(changes);
-      console.log('Schema updated successfully');
+      console.log("Schema updated successfully");
     } else {
-      console.log('Schema is up to date');
+      console.log("Schema is up to date");
     }
-    
+
     return true;
   } catch (error) {
-    console.error('Error initializing schema:', error);
+    console.error("Error initializing schema:", error);
     return false;
   }
 }

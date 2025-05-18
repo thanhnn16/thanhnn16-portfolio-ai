@@ -12,6 +12,8 @@ interface Project {
   mainImage: string
   slug: string
   url: string
+  githubLink?: string
+  demoLink?: string
 }
 
 interface ProjectCardProps {
@@ -55,21 +57,31 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Link>
         </h3>
         <p className="mb-4 text-zinc-400">{project.description}</p>
-        <p className="text-sm text-zinc-500">
-          <span className="font-medium">Role:</span> {project.role}
-        </p>
+        <div className="text-sm text-zinc-400">
+          <span className="font-medium text-zinc-300">Role: </span>
+          {project.role}
+        </div>
       </CardContent>
-      <CardFooter className="flex flex-wrap gap-2 border-t border-zinc-700 bg-zinc-800/50 px-6 py-4">
-        {project.technologies.slice(0, 4).map((tech, index) => (
-          <Badge key={index} variant="secondary" className="bg-zinc-700 hover:bg-zinc-600">
-            {tech}
-          </Badge>
-        ))}
-        {project.technologies.length > 4 && (
-          <Badge variant="secondary" className="bg-zinc-700 hover:bg-zinc-600">
-            +{project.technologies.length - 4}
-          </Badge>
-        )}
+      <CardFooter className="flex flex-col space-y-4 border-t border-zinc-700 bg-zinc-800/50 px-6 py-4">
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech, index) => (
+            <Badge key={index} variant="outline" className="bg-zinc-700 hover:bg-zinc-600">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+        <div className="flex gap-4">
+          {project.githubLink && (
+            <Link href={project.githubLink} className="text-xs text-orange-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              GitHub Repository
+            </Link>
+          )}
+          {project.demoLink && (
+            <Link href={project.demoLink} className="text-xs text-orange-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              Live Demo
+            </Link>
+          )}
+        </div>
       </CardFooter>
     </Card>
   )

@@ -5,8 +5,6 @@ This directory contains the Directus integration for the application. It provide
 ## Directory Structure
 
 - `index.ts` - Main entry point that exports the Directus client and re-exports all types and API functions
-- `schema.yml` - Complete schema definition for the Directus instance
-- `schema-manager.ts` - Utilities for schema synchronization and management
 - `types/` - Type definitions for all collections
   - `index.ts` - Exports all types and defines the main DirectusSchema interface
   - `blog.ts` - Blog-related types
@@ -27,36 +25,6 @@ This directory contains the Directus integration for the application. It provide
   - `workflow.ts` - Workflow-related API functions
   - `order.ts` - Order-related API functions
   - `transaction.ts` - Transaction-related API functions
-
-## Schema Management
-
-The schema is defined in the `schema.yml` file and can be applied to the Directus instance using the functions in `schema-manager.ts`.
-
-To initialize or update the schema:
-
-```typescript
-import { initializeSchema } from './schema-manager';
-
-// Initialize the schema
-await initializeSchema();
-```
-
-## Collections
-
-The following collections are managed by this integration:
-
-1. **blogs** - Blog posts
-2. **tags** - Tags for categorizing content
-3. **blogs_tags** - Junction table for blog-tag relationships
-4. **newsletters** - Email newsletters
-5. **subscribers** - Newsletter subscribers
-6. **newsletters_subscribers** - Junction table for newsletter-subscriber relationships
-7. **comments** - User comments on blog posts
-8. **tracking** - Page visit tracking
-9. **workflows** - JSON workflow files
-10. **orders** - Customer orders
-11. **order_items** - Items within orders
-12. **transactions** - Payment transactions
 
 ## Usage Examples
 

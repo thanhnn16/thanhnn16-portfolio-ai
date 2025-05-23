@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "init:schema": "bun run lib/directus/schema-manager.ts"
+    "directus:init": "docker compose exec directus npx directus schema apply ./database/schema.yaml"
   },
   "dependencies": {
     "@directus/sdk": "latest",

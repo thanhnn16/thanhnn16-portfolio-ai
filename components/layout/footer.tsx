@@ -36,8 +36,7 @@ export function Footer() {
               <Link href="/projects" className="text-zinc-400 hover:text-orange-500">
                 {t("projects")}
               </Link>
-            </li>
-            <li>
+            </li>            <li>
               <Link href="/skills" className="text-zinc-400 hover:text-orange-500">
                 {t("skills")}
               </Link>
@@ -45,6 +44,11 @@ export function Footer() {
             <li>
               <Link href="/blog" className="text-zinc-400 hover:text-orange-500">
                 {t("blog")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/workflows" className="text-zinc-400 hover:text-orange-500">
+                {t("workflows")}
               </Link>
             </li>
             <li>

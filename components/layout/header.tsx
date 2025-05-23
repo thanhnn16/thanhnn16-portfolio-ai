@@ -24,13 +24,13 @@ export function Header() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
   const routes = [
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/projects", label: t("projects") },
     { href: "/skills", label: t("skills") },
     { href: "/blog", label: t("blog") },
+    { href: "/workflows", label: t("workflows") },
     { href: "/contact", label: t("contact") },
   ]
 

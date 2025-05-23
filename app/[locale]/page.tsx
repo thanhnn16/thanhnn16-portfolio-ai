@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/home/hero-section"
 import { KeySkillsSection } from "@/components/home/key-skills-section"
 import { AiApproachSection } from "@/components/home/ai-approach-section"
+import { WorkflowFeatureSection } from "@/components/home/workflow-feature-section"
 import { FeaturedProjectsSection } from "@/components/home/featured-projects-section"
 import { LatestPostsSection } from "@/components/home/latest-posts-section"
 import { getBlogPosts } from "@/lib/directus/api/blog"
@@ -18,12 +19,12 @@ export default async function HomePage({ params }: { params: { locale: string } 
   const latestPosts = allPosts.slice(0, 3)
 
   return (
-    <div className="space-y-20 md:space-y-32 pb-10">
-      <HeroSection />
+    <div className="space-y-20 md:space-y-32 pb-10">      <HeroSection />
       <KeySkillsSection />
       <AiApproachSection />
+      <WorkflowFeatureSection />
       
-      <FeaturedProjectsSection 
+      <FeaturedProjectsSection
         projects={featuredProjects.map(project => ({
           id: project.id,
           title: project.title,

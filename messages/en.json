@@ -1,11 +1,11 @@
 {
-  "common": {
-    "nav": {
+  "common": {    "nav": {
       "home": "Home",
       "about": "About",
       "projects": "Projects",
       "skills": "Skills",
       "blog": "Blog",
+      "workflows": "Workflows",
       "contact": "Contact"
     },
     "cta": {
@@ -33,10 +33,28 @@
     "featuredProjects": {
       "title": "Featured Projects",
       "viewAll": "View All Projects"
-    },
-    "latestPosts": {
+    },    "latestPosts": {
       "title": "Latest Posts",
       "viewAll": "View All Posts"
+    },
+    "workflows": {
+      "title": "n8n Workflows",
+      "description": "Explore my collection of ready-to-use n8n workflows to automate tasks, integrate AI, and boost productivity.",
+      "browse_workflows": "Browse Workflows",
+      "features": {
+        "ai": {
+          "title": "AI Integration",
+          "description": "Workflows that seamlessly integrate AI capabilities into your automation process."
+        },
+        "automation": {
+          "title": "Process Automation",
+          "description": "Automate repetitive tasks and complex business processes with ease."
+        },
+        "productivity": {
+          "title": "Enhanced Productivity",
+          "description": "Save time and reduce errors with battle-tested workflow solutions."
+        }
+      }
     },
     "skills": {
       "title": "Key Skills",
@@ -116,7 +134,32 @@
       "email": "Email",
       "phone": "Phone",
       "address": "Address",
-      "social": "Social Media"
+      "social": "Social Media"    }
+  },
+  "workflows": {
+    "meta_title": "n8n Workflows | Nông Nguyễn Thanh",
+    "meta_description": "Explore and purchase n8n workflows for automation and productivity enhancements. Pre-built automation solutions that save you time and effort.",
+    "title": "n8n Workflows",
+    "description": "Discover my collection of ready-to-use n8n workflows to automate your processes and enhance productivity. Each workflow is carefully crafted to solve specific challenges and can be easily integrated into your existing systems.",
+    "workflow": "Workflow",
+    "workflows": "Workflows",
+    "search_placeholder": "Search workflows...",
+    "no_workflows": "No workflows found matching your criteria.",
+    "workflow_details": "Workflow Details",
+    "buy_now": "Buy Now",
+    "download_demo": "Download Demo",
+    "back_to_workflows": "Back to Workflows",
+    "not_found": "Workflow Not Found",
+    "card": {
+      "view_details": "View Details"
+    },
+    "categories": {
+      "automation": "Automation",
+      "social_media": "Social Media",
+      "data_processing": "Data Processing",
+      "ai": "AI Integration",
+      "marketing": "Marketing",
+      "productivity": "Productivity"
     }
   }
 }

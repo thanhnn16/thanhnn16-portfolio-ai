@@ -1,11 +1,11 @@
 {
-  "common": {
-    "nav": {
+  "common": {    "nav": {
       "home": "Trang chủ",
       "about": "Giới thiệu",
       "projects": "Dự án",
       "skills": "Kỹ năng",
       "blog": "Blog",
+      "workflows": "Workflows",
       "contact": "Liên hệ"
     },
     "cta": {
@@ -33,10 +33,28 @@
     "featuredProjects": {
       "title": "Dự án nổi bật",
       "viewAll": "Xem tất cả dự án"
-    },
-    "latestPosts": {
+    },    "latestPosts": {
       "title": "Bài viết mới nhất",
       "viewAll": "Xem tất cả bài viết"
+    },
+    "workflows": {
+      "title": "Workflows n8n",
+      "description": "Khám phá bộ sưu tập của tôi về các workflows n8n sẵn sàng sử dụng để tự động hóa tác vụ, tích hợp AI và tăng năng suất.",
+      "browse_workflows": "Xem các Workflows",
+      "features": {
+        "ai": {
+          "title": "Tích hợp AI",
+          "description": "Các workflows tích hợp liền mạch khả năng AI vào quy trình tự động hóa của bạn."
+        },
+        "automation": {
+          "title": "Tự động hóa quy trình",
+          "description": "Tự động hóa các tác vụ lặp đi lặp lại và quy trình kinh doanh phức tạp một cách dễ dàng."
+        },
+        "productivity": {
+          "title": "Nâng cao năng suất",
+          "description": "Tiết kiệm thời gian và giảm lỗi với các giải pháp workflow đã được kiểm chứng."
+        }
+      }
     },
     "skills": {
       "title": "Kỹ năng chính",
@@ -116,7 +134,32 @@
       "email": "Email",
       "phone": "Điện thoại",
       "address": "Địa chỉ",
-      "social": "Mạng xã hội"
+      "social": "Mạng xã hội"    }
+  },
+  "workflows": {
+    "meta_title": "Workflows n8n | Nông Nguyễn Thanh",
+    "meta_description": "Khám phá và mua các workflows n8n cho tự động hóa và nâng cao năng suất. Các giải pháp tự động hóa được xây dựng sẵn giúp bạn tiết kiệm thời gian và công sức.",
+    "title": "Workflows n8n",
+    "description": "Khám phá bộ sưu tập các workflows n8n sẵn sàng sử dụng để tự động hóa quy trình và nâng cao năng suất của bạn. Mỗi workflow được thiết kế cẩn thận để giải quyết các thách thức cụ thể và có thể dễ dàng tích hợp vào hệ thống hiện có của bạn.",
+    "workflow": "Workflow",
+    "workflows": "Workflows",
+    "search_placeholder": "Tìm kiếm workflows...",
+    "no_workflows": "Không tìm thấy workflow nào phù hợp với tiêu chí của bạn.",
+    "workflow_details": "Chi tiết Workflow",
+    "buy_now": "Mua ngay",
+    "download_demo": "Tải bản demo",
+    "back_to_workflows": "Quay lại Workflows",
+    "not_found": "Không tìm thấy Workflow",
+    "card": {
+      "view_details": "Xem chi tiết"
+    },
+    "categories": {
+      "automation": "Tự động hóa",
+      "social_media": "Mạng xã hội",
+      "data_processing": "Xử lý dữ liệu",
+      "ai": "Tích hợp AI",
+      "marketing": "Marketing",
+      "productivity": "Năng suất"
     }
   }
 }
